@@ -218,8 +218,16 @@ export interface Settings {
 }
 
 export interface Stats {
-  /** [игровой день, капитал, S&P 500 бенчмарк (SPY-эквивалент капитала)] */
-  history: [number, number, number][];
+  /** [игровой день, капитал, индекс доходности инвестиций (TWR), цена SPY] */
+  history: [number, number, number, number][];
+  /** Индекс доходности портфеля, взвешенный по времени (1 = старт) */
+  invIndex: number;
+  invLast: number;
+  /** Чистые вложения в рынок с прошлого замера (покупки − продажи) */
+  invFlows: number;
+  splits: number;
+  questsDone: number;
+  dailiesDone: number;
   maxNetWorth: number;
   totalClicks: number;
   crits: number;

@@ -21,6 +21,12 @@ export function defaultSettings(): Settings {
 export function emptyStats(): Stats {
   return {
     history: [],
+    invIndex: 1,
+    invLast: 0,
+    invFlows: 0,
+    splits: 0,
+    questsDone: 0,
+    dailiesDone: 0,
     maxNetWorth: 0,
     totalClicks: 0,
     crits: 0,
@@ -115,6 +121,8 @@ export function rebirth(prev: GameState, startDate: string, nowMs = Date.now()):
       playSeconds: prev.stats.playSeconds,
       audits: prev.stats.audits,
       randomEvents: prev.stats.randomEvents,
+      questsDone: prev.stats.questsDone,
+      dailiesDone: prev.stats.dailiesDone,
     },
   };
 }
