@@ -38,7 +38,10 @@ function ToastItem({ t }: { t: Toast }) {
 }
 
 export function Toasts() {
-  const toasts = useUi((u) => u.toasts);
+  const all = useUi((u) => u.toasts);
+  const modalOpen = useUi((u) => u.modal != null);
+  // поверх окон — только срочные; остальные дождутся закрытия (таймер стартует при показе)
+  const toasts = modalOpen ? all.filter((t) => t.urgent) : all.slice(-3);
   return (
     <div className="pointer-events-none fixed inset-x-0 top-[calc(7.5rem+var(--safe-top))] z-[60] mx-auto flex max-w-md flex-col gap-2 px-3">
       <AnimatePresence initial={false}>

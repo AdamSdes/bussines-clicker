@@ -489,7 +489,7 @@ export const useGame = create<GameStore>((set, get) => ({
 
 function fail(msg: string) {
   sfx.error();
-  useUi.getState().toast({ kind: 'bad', emoji: '⛔', title: msg, ttl: 2500 });
+  useUi.getState().toast({ kind: 'bad', emoji: '⛔', title: msg, ttl: 2500, urgent: true });
 }
 
 export const useS = <T,>(sel: (s: GameState) => T) => useGame((st) => sel(st.s));

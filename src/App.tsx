@@ -10,7 +10,7 @@ import { NewsTicker } from './components/layout/NewsTicker';
 import { Confetti, Toasts } from './components/layout/Toasts';
 import { WorkScreen } from './components/work/WorkScreen';
 import { BusinessScreen } from './components/business/BusinessScreen';
-import { AwayModal, ChoiceModal, DailyModal } from './components/modals/Modals';
+import { AwayModal, ChoiceModal, DailyModal, NewsModal } from './components/modals/Modals';
 import { SandboxModal, SaveModal } from './components/profile/Settings';
 
 const InvestScreen = lazy(() => import('./components/invest/InvestScreen'));
@@ -76,6 +76,7 @@ export default function App() {
       <ChoiceModal />
       <SaveModal />
       <SandboxModal />
+      <NewsModal />
     </div>
   );
 }

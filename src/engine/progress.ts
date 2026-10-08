@@ -165,7 +165,8 @@ function makeQuest(t: QuestTemplate, rand: () => number, s: GameState, ctx: Ques
     template: t.id,
     target,
     progress: 0,
-    reward: { rep: t.reward.rep },
+    // награда фиксируется при выдаче — в масштабе дохода на этот момент, как и цель
+    reward: { rep: t.reward.rep, cash: Math.max(t.reward.minCash, t.reward.cashSec * ctx.incomePerSec) },
     done: false,
     claimed: false,
   };
@@ -279,7 +280,8 @@ export function questContinuous(s: GameState, ctx: QuestCtx): QuestProgress[] {
 export function questReward(q: QuestProgress, incomePerSec: number): { cash: number; rep: number } {
   const t = [...QUESTS_DAILY, ...QUESTS_WEEKLY].find((x) => x.id === q.template);
   if (!t) return { cash: 0, rep: 0 };
-  return { cash: Math.max(t.reward.minCash, t.reward.cashSec * incomePerSec), rep: t.reward.rep ?? 0 };
+  const cash = q.reward.cash ?? Math.max(t.reward.minCash, t.reward.cashSec * incomePerSec);
+  return { cash, rep: t.reward.rep ?? 0 };
 }
 
 export function questText(q: QuestProgress): { name: string; desc: string; emoji: string; progressText: string } {

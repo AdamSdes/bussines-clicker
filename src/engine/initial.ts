@@ -107,7 +107,8 @@ export function rebirth(prev: GameState, startDate: string, nowMs = Date.now()):
     skills: prev.skills,
     ipos: prev.ipos,
     achievements: prev.achievements,
-    quests: prev.quests,
+    // задания перевыпускаются под новую жизнь (их цели и награды зависят от дохода)
+    quests: fresh.quests,
     dailyReward: prev.dailyReward,
     settings: prev.settings,
     createdAt: prev.createdAt,

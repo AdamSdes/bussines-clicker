@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { ASSET_BY_ID, BALANCE, RANDOM_BY_ID } from '../../engine/config';
+import { ASSET_BY_ID, BALANCE, NEWS, RANDOM_BY_ID } from '../../engine/config';
+import { useLive } from '../../engine/liveStore';
 import { fmtMoney, fmtNum, fmtPct } from '../../engine/format';
-import { fmtDate, fmtDuration, fmtGameSpan, localDayKey } from '../../engine/time';
+import { dayNum, fmtDate, fmtDuration, fmtGameSpan, localDayKey } from '../../engine/time';
 import { useGame } from '../../store/game';
 import { useUi } from '../../store/ui';
 import { Button, Change, Modal, Stat, TickerLogo, cx } from '../ui';
@@ -151,3 +152,91 @@ export function ChoiceModal() {
     </Modal>
   );
 }
+
+export function NewsModal() {
+  const modal = useUi((u) => u.modal);
+  const close = useUi((u) => u.close);
+  const cursor = useGame((g) => g.s.newsCursor);
+  const hist = useGame((g) => g.rt.mods.hist);
+  const live = useGame((g) => g.s.live);
+  const status = useLive((l) => l);
+  const [n, setN] = useState(40);
+  const list = NEWS.slice(0, cursor + 1).reverse().slice(0, n);
+  return (
+    <Modal open={modal?.type === 'news'} onClose={close} title="📰 Хроника">
+      {hist.length > 0 && (
+        <div className="mb-4 space-y-2">
+          <div className="text-[12px] font-bold uppercase tracking-wider text-ink-dim">Эпоха сейчас</div>
+          {hist.map((h) => (
+            <div key={h.id} className="rounded-xl bg-white/[0.03] p-3">
+              <div className="text-sm font-semibold">
+                {h.emoji} {h.name}
+              </div>
+              <div className="text-xs text-ink-dim">{h.desc}</div>
+              <div className="mt-1.5 flex flex-wrap gap-1">
+                {Object.entries(h.demand ?? {}).map(([cat, m]) => (
+                  <span key={cat} className={cx('rounded px-1.5 py-0.5 text-[10px] font-semibold', (m ?? 1) >= 1 ? 'bg-up-soft text-up' : 'bg-down-soft text-down')}>
+                    {CATEGORY_NAMES[cat] ?? cat} ×{m}
+                  </span>
+                ))}
+                {Object.entries(h.costs ?? {}).map(([cat, c]) => (
+                  <span key={cat} className="rounded bg-down-soft px-1.5 py-0.5 text-[10px] font-semibold text-down">
+                    расходы {CATEGORY_NAMES[cat] ?? cat}
+                    {Object.entries(c ?? {}).map(([k, v]) => ` ${k === 'cogs' ? 'закупки' : k === 'rent' ? 'аренда' : 'зарплаты'} ×${v}`)}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+      {live && (
+        <div className="mb-4 rounded-xl bg-white/[0.03] p-3 text-xs text-ink-dim">
+          📡 Живой режим · крипта: {STATUS[status.crypto]} · акции: {STATUS[status.stocks]} · новости: {STATUS[status.news]}
+          {status.headlines.length > 0 && (
+            <div className="mt-2 space-y-1.5">
+              {status.headlines.slice(0, 10).map((h, i) => (
+                <a key={i} href={h.url} target="_blank" rel="noreferrer" className="block text-ink hover:text-gold">
+                  <span className="mr-2 text-gold">{h.date}</span>
+                  {h.title} <span className="text-ink-mute">· {h.source}</span>
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+      <div className="space-y-2.5">
+        {list.map((x, i) => (
+          <div key={i} className="flex gap-3 text-sm">
+            <div className="num w-[84px] shrink-0 text-xs text-gold">{fmtDate(dayNum(x.d))}</div>
+            <div className={cx('text-ink-dim', x.big && 'font-semibold text-ink')}>{x.t}</div>
+          </div>
+        ))}
+      </div>
+      {cursor + 1 > n && (
+        <Button className="mt-3 w-full" onClick={() => setN((v) => v + 60)}>
+          Показать ещё
+        </Button>
+      )}
+    </Modal>
+  );
+}
+
+const STATUS: Record<string, string> = { idle: '—', ok: '✓ API', error: 'ошибка → симуляция', nokey: 'нет ключа → симуляция', loading: 'загрузка…' };
+
+export const CATEGORY_NAMES: Record<string, string> = {
+  food_takeaway: 'еда навынос',
+  food_dinein: 'кафе',
+  food_fast: 'фастфуд',
+  auto_service: 'автосервис',
+  fuel: 'АЗС',
+  retail_grocery: 'продукты',
+  tech: 'IT',
+  logistics: 'логистика',
+  manufacturing: 'заводы',
+  finance: 'банки',
+  airline: 'авиация',
+  energy: 'нефть и газ',
+  space: 'космос',
+  '*': 'все',
+};

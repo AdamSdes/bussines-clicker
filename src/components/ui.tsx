@@ -68,23 +68,26 @@ export function Badge({ children, tone = 'dim', className }: { children: ReactNo
 }
 
 export function Segmented<T extends string | number>({
-  value, onChange, options, className, size = 'md',
+  value, onChange, options, className, size = 'md', scroll = false,
 }: {
   value: T;
   onChange: (v: T) => void;
   options: { value: T; label: ReactNode; badge?: number }[];
   className?: string;
   size?: 'sm' | 'md';
+  /** Горизонтальная прокрутка вместо сжатия (много пунктов на узком экране) */
+  scroll?: boolean;
 }) {
   return (
-    <div className={cx('flex gap-1 rounded-2xl bg-white/[0.04] p-1 shadow-[0_0_0_1px_rgba(255,255,255,0.05)]', className)}>
+    <div className={cx('flex gap-1 rounded-2xl bg-white/[0.04] p-1 shadow-[0_0_0_1px_rgba(255,255,255,0.05)]', scroll && 'no-scrollbar overflow-x-auto', className)}>
       {options.map((o) => (
         <button
           key={String(o.value)}
           type="button"
           onClick={() => onChange(o.value)}
           className={cx(
-            'press relative flex-1 whitespace-nowrap rounded-xl font-semibold',
+            'press relative whitespace-nowrap rounded-xl font-semibold',
+            scroll ? 'flex-none' : 'flex-1',
             size === 'sm' ? 'h-8 px-2 text-xs' : 'h-10 px-3 text-sm',
             value === o.value ? 'bg-white/[0.1] text-ink shadow-[0_1px_0_rgba(255,255,255,0.06)_inset]' : 'text-ink-dim hover:text-ink',
           )}

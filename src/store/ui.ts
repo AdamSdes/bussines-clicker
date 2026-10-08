@@ -13,6 +13,8 @@ export interface Toast {
   text?: string;
   emoji?: string;
   ttl: number;
+  /** Показывать даже поверх открытого окна (ошибки действий) */
+  urgent?: boolean;
 }
 
 export interface Floater {
@@ -32,6 +34,7 @@ export type Modal =
   | { type: 'sandbox' }
   | { type: 'save' }
   | { type: 'biz'; id: string }
+  | { type: 'news' }
   | null;
 
 interface UiStore {
@@ -75,8 +78,8 @@ export const useUi = create<UiStore>((set) => ({
   toast: (t) =>
     set((st) => {
       const toast: Toast = { id: nextId++, ttl: t.ttl ?? (t.kind === 'news' ? 6500 : 4500), ...t };
-      // не больше 4 тостов одновременно
-      return { toasts: [...st.toasts.slice(-3), toast] };
+      // очередь до 6 тостов, на экране — не больше 3
+      return { toasts: [...st.toasts.slice(-5), toast] };
     }),
   dismiss: (id) => set((st) => ({ toasts: st.toasts.filter((t) => t.id !== id) })),
   floater: (f) => set((st) => ({ floaters: [...st.floaters.slice(-24), { id: nextId++, ...f }] })),
