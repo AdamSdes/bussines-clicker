@@ -29,12 +29,16 @@ export function secPerDay(s: GameState): number {
   return sp.secPerDay;
 }
 
+/** Потолок чисел: double в JS держит до ~1.8e308, оставляем запас для умножений */
+export const MAX_NUM = 1e306;
+
 /** Деньги, заработанные игроком (идут в счёт IPO) */
 export function addIncome(s: GameState, amount: number) {
-  s.cash += amount;
+  if (!Number.isFinite(amount)) amount = amount > 0 ? MAX_NUM : 0;
+  s.cash = Math.min(MAX_NUM, s.cash + amount);
   if (amount > 0) {
-    s.earnedLife += amount;
-    s.earnedTotal += amount;
+    s.earnedLife = Math.min(MAX_NUM, s.earnedLife + amount);
+    s.earnedTotal = Math.min(MAX_NUM, s.earnedTotal + amount);
   }
 }
 

@@ -190,7 +190,8 @@ export const useGame = create<GameStore>((set, get) => ({
         // Раз в секунду: случайные события, достижения, квесты, рекорды
         const nw = netWorth(d, d.live);
         if (nw > d.stats.maxNetWorth) d.stats.maxNetWorth = nw;
-        maybeRandomEvent(d, now, mods, emit);
+        // случайные события не перебивают открытое окно (сделку, IPO, сводку)
+        if (!useUi.getState().modal) maybeRandomEvent(d, now, mods, emit);
         for (const id of checkAchievements(d, { nw, liveNow: d.live })) {
           d.achievements[id] = now;
           emit({ type: 'achievement', id });

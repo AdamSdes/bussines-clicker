@@ -117,7 +117,7 @@ function BusinessCard({ def }: { def: BusinessDef }) {
           aria-label={running ? 'Работает' : 'Запустить цикл'}
         >
           {def.emoji}
-          <span className="num absolute -bottom-1.5 left-1/2 -translate-x-1/2 rounded-md bg-[#0b0f16] px-1.5 text-[11px] font-bold text-gold shadow-[0_0_0_1px_rgba(245,196,81,0.35)]">{level}</span>
+          <span className="num absolute -bottom-1.5 left-1/2 -translate-x-1/2 rounded-md bg-[#0b0f16] px-1.5 text-[11px] font-bold leading-[18px] text-gold shadow-[0_0_0_1px_rgba(245,196,81,0.35)]">{level}</span>
         </button>
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2">
@@ -130,7 +130,13 @@ function BusinessCard({ def }: { def: BusinessDef }) {
             <span className="ml-2 text-xs text-ink-mute">{fmtMoney(perSec)}/с</span>
           </div>
           <div className="mt-2">
-            <Progress value={progress} color={st.manager ? 'green' : 'gold'} animate={def.cycleSec > 0.5} />
+            {running ? (
+              <Progress value={progress} color={st.manager ? 'green' : 'gold'} animate={def.cycleSec > 0.5} />
+            ) : (
+              <button onClick={() => run(def.id)} className="press -my-1 flex h-7 items-center gap-1 rounded-lg bg-gold-soft px-2 text-[11px] font-bold text-gold">
+                ▶ Запустить цикл
+              </button>
+            )}
           </div>
         </div>
       </div>

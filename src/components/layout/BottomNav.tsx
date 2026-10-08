@@ -32,7 +32,8 @@ function useBadges(): string {
       if (st && lvl > 0 && !st.manager && managerCost(BIZ_BY_ID[def.id], m) <= s.cash) biz = true;
       if (biz) break;
     }
-    const life = LIFESTYLE.some((i) => !s.lifestyle.includes(i.id) && i.price <= s.cash && s.cash > 5000);
+    // бейдж — только если по карману заметная покупка (от 5% наличных), а не часы Casio
+    const life = LIFESTYLE.some((i) => !s.lifestyle.includes(i.id) && i.price <= s.cash && i.price >= s.cash * 0.05);
     const quests = [...s.quests.daily, ...s.quests.weekly].some((q) => q.done && !q.claimed);
     const profile = quests || s.dailyReward.lastKey !== localDayKey() || canIpo(s) || SKILLS.some((sk) => !canBuySkill(s, sk.id));
     return `${work ? 1 : 0}${biz ? 1 : 0}0${life ? 1 : 0}${profile ? 1 : 0}`;
