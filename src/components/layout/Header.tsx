@@ -42,9 +42,9 @@ export function Header() {
               className="press flex min-h-10 items-center gap-2 rounded-xl bg-white/[0.05] px-3 py-1.5 text-right shadow-[0_0_0_1px_rgba(255,255,255,0.06)]"
             >
               <div>
-                <div className="num text-[13px] font-bold leading-tight">{fmtDate(day)}</div>
-                <div className="text-[11px] leading-tight text-ink-dim">
-                  {fmtWeekday(day)} · {live ? 'реальное время' : sp.id === 'pause' ? 'пауза' : sp.label}
+                <div className="num whitespace-nowrap text-[13px] font-bold leading-tight">{fmtDate(day)}</div>
+                <div className="whitespace-nowrap text-[11px] leading-tight text-ink-dim">
+                  {fmtWeekday(day)} · {live ? 'реальное время' : sp.id === 'pause' ? 'пауза' : sp.secPerDay >= 60 ? 'день = 1 мин' : `день = ${sp.secPerDay} с`}
                 </div>
               </div>
               {live ? (

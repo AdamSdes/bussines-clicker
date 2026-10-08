@@ -85,6 +85,8 @@ export interface AssetDef {
   ipo?: string;
   /** «Призрак» — актив, который историческо обвалился (LUNA, FTT) */
   ghost?: string;
+  /** Описание до краха (без спойлеров) */
+  preGhost?: string;
   /** Ожидаемая годовая доходность для симуляции после конца данных */
   drift?: number;
   coingeckoId?: string;

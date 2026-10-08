@@ -209,15 +209,31 @@ export function priceAt(id: string, t: number, liveNow = false): number | null {
   return base + wiggle * amp;
 }
 
-/** Изменение цены за период (в долях): priceAt(t) / close(t − days) − 1 */
+/**
+ * Изменение цены за период (в долях): priceAt(t) / close(t − days) − 1.
+ * Для бирж «за день» считается от закрытия предыдущей торговой сессии,
+ * поэтому в выходные показывается изменение пятницы, а не 0%.
+ */
 export function changeOver(id: string, t: number, days: number, liveNow = false): number | null {
   const now = priceAt(id, t, liveNow);
   const s = series.get(id);
   if (now == null || !s) return null;
-  const k = Math.max(s.first, Math.floor(t) - days);
+  let k = Math.floor(t) - days;
+  if (!s.allDay) {
+    let session = Math.floor(t);
+    while (isWeekendDay(session)) session--;
+    k = session - days;
+    while (isWeekendDay(k)) k--;
+  }
+  k = Math.max(s.first, k);
   const then = closeOn(id, k);
   if (!then) return null;
   return now / then - 1;
+}
+
+function isWeekendDay(k: number) {
+  const w = new Date(k * 86_400_000).getUTCDay();
+  return w === 0 || w === 6;
 }
 
 /** Дневные свечи [from..to]; для текущего (незавершённого) дня close = текущая цена. */
