@@ -79,3 +79,10 @@ export function fmtGameSpan(days: number): string {
   if (days < 730) return `${Math.round(days / 30.4)} мес.`;
   return `${(days / 365.25).toFixed(1)} г.`;
 }
+
+const WEEKDAYS_FULL = ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'];
+
+/** «среда» — полный день недели для газетной шапки */
+export function fmtWeekdayFull(day: number): string {
+  return WEEKDAYS_FULL[new Date(Math.floor(day) * MS_DAY).getUTCDay()];
+}

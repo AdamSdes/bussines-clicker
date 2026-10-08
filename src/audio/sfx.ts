@@ -45,7 +45,30 @@ function buzz(pattern: number | number[]) {
   }
 }
 
+/** Тихий механический щелчок: 12 мс отфильтрованного шума, без тона */
+function tick(gain: number) {
+  const a = ac();
+  if (!a) return;
+  const len = Math.floor(a.sampleRate * 0.012);
+  const buf = a.createBuffer(1, len, a.sampleRate);
+  const ch = buf.getChannelData(0);
+  for (let i = 0; i < len; i++) ch[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 4);
+  const src = a.createBufferSource();
+  src.buffer = buf;
+  const hp = a.createBiquadFilter();
+  hp.type = 'highpass';
+  hp.frequency.value = 1800;
+  const g = a.createGain();
+  g.gain.value = gain;
+  src.connect(hp).connect(g).connect(a.destination);
+  src.start();
+}
+
 export const sfx = {
+  tick() {
+    tick(0.18);
+    buzz(4);
+  },
   click(combo = 1) {
     tone(520 + combo * 60, 0.06, 'triangle', 0.05, 1.3);
     buzz(6);

@@ -1,0 +1,79 @@
+[
+  {
+    "key": "crypto/BNB",
+    "file": "images/crypto/BNB.svg",
+    "label": "BNB",
+    "title": "BNB icon",
+    "author": "Cryptocurrency Icons contributors",
+    "license": "CC0-1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source": "cryptocurrency-icons",
+    "sourceUrl": "https://github.com/spothq/cryptocurrency-icons"
+  },
+  {
+    "key": "crypto/BTC",
+    "file": "images/crypto/BTC.svg",
+    "label": "BTC",
+    "title": "BTC icon",
+    "author": "Cryptocurrency Icons contributors",
+    "license": "CC0-1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source": "cryptocurrency-icons",
+    "sourceUrl": "https://github.com/spothq/cryptocurrency-icons"
+  },
+  {
+    "key": "crypto/DOGE",
+    "file": "images/crypto/DOGE.svg",
+    "label": "DOGE",
+    "title": "DOGE icon",
+    "author": "Cryptocurrency Icons contributors",
+    "license": "CC0-1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source": "cryptocurrency-icons",
+    "sourceUrl": "https://github.com/spothq/cryptocurrency-icons"
+  },
+  {
+    "key": "crypto/ETH",
+    "file": "images/crypto/ETH.svg",
+    "label": "ETH",
+    "title": "ETH icon",
+    "author": "Cryptocurrency Icons contributors",
+    "license": "CC0-1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source": "cryptocurrency-icons",
+    "sourceUrl": "https://github.com/spothq/cryptocurrency-icons"
+  },
+  {
+    "key": "crypto/LTC",
+    "file": "images/crypto/LTC.svg",
+    "label": "LTC",
+    "title": "LTC icon",
+    "author": "Cryptocurrency Icons contributors",
+    "license": "CC0-1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source": "cryptocurrency-icons",
+    "sourceUrl": "https://github.com/spothq/cryptocurrency-icons"
+  },
+  {
+    "key": "crypto/SOL",
+    "file": "images/crypto/SOL.svg",
+    "label": "SOL",
+    "title": "SOL icon",
+    "author": "Cryptocurrency Icons contributors",
+    "license": "CC0-1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source": "cryptocurrency-icons",
+    "sourceUrl": "https://github.com/spothq/cryptocurrency-icons"
+  },
+  {
+    "key": "crypto/XRP",
+    "file": "images/crypto/XRP.svg",
+    "label": "XRP",
+    "title": "XRP icon",
+    "author": "Cryptocurrency Icons contributors",
+    "license": "CC0-1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source": "cryptocurrency-icons",
+    "sourceUrl": "https://github.com/spothq/cryptocurrency-icons"
+  }
+]

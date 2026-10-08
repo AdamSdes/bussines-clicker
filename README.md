@@ -62,6 +62,16 @@ scripts/
   engine-test.ts      дымовой тест движка
 ```
 
+## Дизайн: «Деловая газета»
+
+Руководство по стилю — отдельная страница: `npm run dev`, затем http://localhost:5173/styleguide/ (в сборке — `dist/styleguide/index.html`). Скриншоты — в [`docs/styleguide/`](docs/styleguide).
+
+- Дизайн-система: `src/design/newsprint.css` (токены и классы `np-*`, утренний и вечерний выпуски) и компоненты в `src/design/`.
+- Шрифты: Source Serif 4, IBM Plex Sans, IBM Plex Mono — из Google Fonts, упакованы через `@fontsource` (без внешних запросов).
+- Иконки: Phosphor, вес Light — только навигация и служебные кнопки.
+- Фотографии: `npm run images` скачивает изображения из манифеста `src/config/images.json` (Wikimedia Commons, при наличии ключей `PEXELS_API_KEY` / `UNSPLASH_ACCESS_KEY` — Pexels и Unsplash). Скрипт берёт только свободные лицензии (CC0, PD, CC BY, CC BY-SA, лицензии Pexels и Unsplash), конвертирует в WebP до 800px, вырезает однотонный фон у предметов и пишет авторов в `public/images/credits.json` и `src/data/images.json`. Хотлинкинга нет. Пока фото нет, показывается заглушка цвета бумаги с названием. Unsplash API по своим правилам просит показывать фото по их ссылкам, поэтому по умолчанию первым источником идёт Commons.
+- Логотипы монет: набор `cryptocurrency-icons` (CC0). Логотипы компаний — SVG с Commons за флагом `useRealLogos` в манифесте; при `false` — тикер в рамке.
+
 ## Данные
 
 ```bash

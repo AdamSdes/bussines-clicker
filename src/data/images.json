@@ -1,0 +1,111 @@
+{
+ "images": {
+  "crypto/BNB": {
+   "src": "images/crypto/BNB.svg",
+   "w": 32,
+   "h": 32,
+   "cutout": true,
+   "label": "BNB",
+   "credit": {
+    "title": "BNB icon",
+    "author": "Cryptocurrency Icons contributors",
+    "license": "CC0-1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source": "cryptocurrency-icons",
+    "sourceUrl": "https://github.com/spothq/cryptocurrency-icons"
+   }
+  },
+  "crypto/BTC": {
+   "src": "images/crypto/BTC.svg",
+   "w": 32,
+   "h": 32,
+   "cutout": true,
+   "label": "BTC",
+   "credit": {
+    "title": "BTC icon",
+    "author": "Cryptocurrency Icons contributors",
+    "license": "CC0-1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source": "cryptocurrency-icons",
+    "sourceUrl": "https://github.com/spothq/cryptocurrency-icons"
+   }
+  },
+  "crypto/DOGE": {
+   "src": "images/crypto/DOGE.svg",
+   "w": 32,
+   "h": 32,
+   "cutout": true,
+   "label": "DOGE",
+   "credit": {
+    "title": "DOGE icon",
+    "author": "Cryptocurrency Icons contributors",
+    "license": "CC0-1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source": "cryptocurrency-icons",
+    "sourceUrl": "https://github.com/spothq/cryptocurrency-icons"
+   }
+  },
+  "crypto/ETH": {
+   "src": "images/crypto/ETH.svg",
+   "w": 32,
+   "h": 32,
+   "cutout": true,
+   "label": "ETH",
+   "credit": {
+    "title": "ETH icon",
+    "author": "Cryptocurrency Icons contributors",
+    "license": "CC0-1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source": "cryptocurrency-icons",
+    "sourceUrl": "https://github.com/spothq/cryptocurrency-icons"
+   }
+  },
+  "crypto/LTC": {
+   "src": "images/crypto/LTC.svg",
+   "w": 32,
+   "h": 32,
+   "cutout": true,
+   "label": "LTC",
+   "credit": {
+    "title": "LTC icon",
+    "author": "Cryptocurrency Icons contributors",
+    "license": "CC0-1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source": "cryptocurrency-icons",
+    "sourceUrl": "https://github.com/spothq/cryptocurrency-icons"
+   }
+  },
+  "crypto/SOL": {
+   "src": "images/crypto/SOL.svg",
+   "w": 32,
+   "h": 32,
+   "cutout": true,
+   "label": "SOL",
+   "credit": {
+    "title": "SOL icon",
+    "author": "Cryptocurrency Icons contributors",
+    "license": "CC0-1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source": "cryptocurrency-icons",
+    "sourceUrl": "https://github.com/spothq/cryptocurrency-icons"
+   }
+  },
+  "crypto/XRP": {
+   "src": "images/crypto/XRP.svg",
+   "w": 32,
+   "h": 32,
+   "cutout": true,
+   "label": "XRP",
+   "credit": {
+    "title": "XRP icon",
+    "author": "Cryptocurrency Icons contributors",
+    "license": "CC0-1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source": "cryptocurrency-icons",
+    "sourceUrl": "https://github.com/spothq/cryptocurrency-icons"
+   }
+  }
+ },
+ "generated": "2026-10-08",
+ "useRealLogos": true
+}

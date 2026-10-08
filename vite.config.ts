@@ -8,5 +8,12 @@ export default defineConfig({
   build: {
     target: 'es2020',
     chunkSizeWarningLimit: 900,
+    rollupOptions: {
+      // игра и отдельная страница /styleguide (пути — от корня проекта)
+      input: {
+        main: 'index.html',
+        styleguide: 'styleguide/index.html',
+      },
+    },
   },
 });
