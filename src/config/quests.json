@@ -1,0 +1,23 @@
+{
+  "_comment": "Шаблоны квестов. Ежедневные (по реальному дню) и еженедельные. target может масштабироваться от дохода (scale: incomeSec — секунд текущего дохода). reward.cashSec — награда в секундах дохода (не меньше minCash).",
+  "daily": [
+    { "id": "clicks", "name": "Ударная смена", "desc": "Сделай {target} кликов", "emoji": "👆", "targets": [300, 600, 1000], "reward": { "cashSec": 120, "minCash": 500 } },
+    { "id": "earn", "name": "План по выручке", "desc": "Заработай {target}", "emoji": "💵", "scale": "incomeSec", "targets": [600, 1200], "minTarget": 5000, "reward": { "cashSec": 180, "minCash": 1000 } },
+    { "id": "units", "name": "Экспансия", "desc": "Открой {target} новых точек", "emoji": "🏪", "targets": [10, 25, 50], "reward": { "cashSec": 150, "minCash": 800 } },
+    { "id": "trades", "name": "Активный трейдер", "desc": "Соверши {target} сделок на рынке", "emoji": "🔁", "targets": [3, 5], "reward": { "cashSec": 120, "minCash": 500 } },
+    { "id": "earnings_buy", "name": "Купи акцию до отчёта", "desc": "Купи акцию компании за 10 игровых дней до её квартального отчёта", "emoji": "📅", "targets": [1], "reward": { "cashSec": 240, "minCash": 2000 } },
+    { "id": "crits", "name": "В яблочко", "desc": "Сделай {target} критических кликов", "emoji": "🎯", "targets": [15, 30], "reward": { "cashSec": 120, "minCash": 500 } },
+    { "id": "combo", "name": "Максимальное комбо", "desc": "Разгони комбо до x5", "emoji": "🔥", "targets": [1], "reward": { "cashSec": 90, "minCash": 500 } },
+    { "id": "days", "name": "Путешественник во времени", "desc": "Проживи {target} игровых дней", "emoji": "⏳", "targets": [30, 60], "reward": { "cashSec": 150, "minCash": 800 } },
+    { "id": "dividends", "name": "Рантье", "desc": "Получи дивиденды {target} раз", "emoji": "🧾", "targets": [1, 3], "reward": { "cashSec": 150, "minCash": 800 } }
+  ],
+  "weekly": [
+    { "id": "hold_drop", "name": "Переживи обвал без продаж", "desc": "Держи портфель от $1K, пока он не просядет на {target}% от пика, и ничего не продавай", "emoji": "💎", "targets": [10, 15], "reward": { "cashSec": 900, "minCash": 10000, "rep": 1 } },
+    { "id": "earn_big", "name": "Квартальный отчёт", "desc": "Заработай {target}", "emoji": "📊", "scale": "incomeSec", "targets": [7200, 14400], "minTarget": 100000, "reward": { "cashSec": 1800, "minCash": 20000, "rep": 1 } },
+    { "id": "property", "name": "Девелопер", "desc": "Купи {target} объекта недвижимости", "emoji": "🏘️", "targets": [1, 2], "reward": { "cashSec": 1200, "minCash": 15000, "rep": 1 } },
+    { "id": "networth_x2", "name": "Удвоение", "desc": "Увеличь капитал в 2 раза", "emoji": "✖️", "targets": [2], "reward": { "cashSec": 1500, "minCash": 20000, "rep": 2 } },
+    { "id": "game_year", "name": "Год в бизнесе", "desc": "Проживи {target} игровых дней", "emoji": "📆", "targets": [365], "reward": { "cashSec": 1200, "minCash": 15000, "rep": 1 } },
+    { "id": "dailies", "name": "Стахановец", "desc": "Выполни {target} ежедневных заданий", "emoji": "✅", "targets": [6, 9], "reward": { "cashSec": 1500, "minCash": 20000, "rep": 2 } },
+    { "id": "mine", "name": "Шахтёр", "desc": "Намайни {target} BTC", "emoji": "⛏️", "scale": "miningDays", "targets": [20, 40], "reward": { "cashSec": 1200, "minCash": 15000, "rep": 1 } }
+  ]
+}

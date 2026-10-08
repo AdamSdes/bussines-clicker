@@ -1,0 +1,40 @@
+{
+  "_comment": "Дерево навыков. Покупается за Репутацию (валюта, получаемая на IPO). cost(уровень) = base · growth^уровень. effect — значение за уровень.",
+  "branches": [
+    { "id": "business", "name": "Бизнес", "emoji": "🏢" },
+    { "id": "invest", "name": "Инвестиции", "emoji": "📈" },
+    { "id": "personal", "name": "Личное", "emoji": "🧑‍💼" }
+  ],
+  "skills": [
+    { "id": "mba", "branch": "business", "name": "MBA", "emoji": "🎓", "max": 15, "base": 1, "growth": 1.6, "effect": 0.25,
+      "desc": "+25% к прибыли всех бизнесов за уровень" },
+    { "id": "franchising", "branch": "business", "name": "Франчайзинг", "emoji": "🧩", "max": 6, "base": 3, "growth": 1.8, "effect": 0.05, "requires": "mba",
+      "desc": "−5% к цене новых точек за уровень" },
+    { "id": "hr", "branch": "business", "name": "Школа менеджеров", "emoji": "🧑‍🏫", "max": 4, "base": 2, "growth": 2, "effect": 0.15,
+      "desc": "−15% к цене менеджеров за уровень" },
+    { "id": "tax", "branch": "business", "name": "Налоговая оптимизация", "emoji": "🧾", "max": 5, "base": 4, "growth": 1.9, "effect": 0.1, "requires": "mba",
+      "desc": "−10% от налоговой ставки за уровень и меньше штрафов при проверках" },
+    { "id": "insider", "branch": "invest", "name": "Инсайдерская интуиция", "emoji": "🔮", "max": 3, "base": 5, "growth": 3, "effect": 1,
+      "desc": "Подсказки трендов: ур.1 — на 7 дней вперёд, ур.2 — 30 дней, ур.3 — 90 дней и предупреждения об обвалах" },
+    { "id": "realtor", "branch": "invest", "name": "Риелтор", "emoji": "🏘️", "max": 4, "base": 3, "growth": 2, "effect": 0.15,
+      "desc": "+15% к арендному доходу за уровень" },
+    { "id": "energy", "branch": "invest", "name": "Энергоконтракт", "emoji": "⚡", "max": 4, "base": 3, "growth": 2, "effect": 0.15,
+      "desc": "−15% к стоимости электричества для майнинга за уровень" },
+    { "id": "banker", "branch": "invest", "name": "Связи в банке", "emoji": "🤵", "max": 4, "base": 2, "growth": 2, "effect": 0.0025, "requires": "realtor",
+      "desc": "+0,25 п.п. к ставкам вкладов и −0,5 п.п. по кредитам за уровень" },
+    { "id": "broker", "branch": "invest", "name": "Прайм-брокер", "emoji": "💹", "max": 3, "base": 2, "growth": 2.5, "effect": 0.33,
+      "desc": "−33% комиссий за сделки за уровень" },
+    { "id": "offline", "branch": "personal", "name": "Офлайн-часы", "emoji": "🌙", "max": 5, "base": 2, "growth": 1.8, "effect": 3,
+      "desc": "+3 часа к лимиту офлайн-дохода и +8% к его эффективности за уровень" },
+    { "id": "charisma", "branch": "personal", "name": "Харизма", "emoji": "✨", "max": 8, "base": 1, "growth": 1.7, "effect": 0.5,
+      "desc": "+50% к доходу от клика за уровень" },
+    { "id": "luck", "branch": "personal", "name": "Удача", "emoji": "🍀", "max": 5, "base": 3, "growth": 2, "effect": 0.02, "requires": "charisma",
+      "desc": "+2% к шансу критического клика и чаще хорошие случайные события" },
+    { "id": "capital", "branch": "personal", "name": "Стартовый капитал", "emoji": "💰", "max": 5, "base": 4, "growth": 2.5, "effect": 1,
+      "desc": "Новая жизнь начинается не с нуля: $10K → $100K → $1M → $10M → $100M" },
+    { "id": "timemachine", "branch": "personal", "name": "Машина времени", "emoji": "⏳", "max": 4, "base": 10, "growth": 2.2, "effect": 1, "requires": "capital",
+      "desc": "Выбор года старта новой жизни: 2010 → 2013 → 2016 → 2020" }
+  ],
+  "capitalLevels": [0, 10000, 100000, 1000000, 10000000, 100000000],
+  "timeMachineYears": [[2009], [2009, 2010], [2009, 2010, 2013], [2009, 2010, 2013, 2016], [2009, 2010, 2013, 2016, 2020]]
+}

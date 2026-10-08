@@ -1,0 +1,1044 @@
+{
+  "_comment": "Бизнесы: baseCost — цена первой точки, costGrowth — рост цены за уровень (cost(n)=baseCost·growth^n), cycleSec — длительность цикла, revenue — выручка одной точки за цикл. expenses — доли выручки (себестоимость, аренда+коммуналка, зарплаты). Налог на прибыль берётся из настроек. Улучшения: costMult × baseCost = цена; value — для расходов доля снижения статьи, для выручки — множитель. Реальные значения смасштабированы по темпу ради геймплея.",
+  "milestones": [
+    25,
+    50,
+    100,
+    200,
+    300,
+    400,
+    500,
+    600,
+    700,
+    800,
+    900,
+    1000
+  ],
+  "milestoneMult": 2,
+  "businesses": [
+    {
+      "id": "coffee_cart",
+      "name": "Кофе навынос",
+      "emoji": "☕",
+      "category": "food_takeaway",
+      "baseCost": 5000,
+      "costGrowth": 1.08,
+      "cycleSec": 1,
+      "revenue": 321,
+      "expenses": {
+        "cogs": 0.3,
+        "rent": 0.08,
+        "salaries": 0.22
+      },
+      "managerCost": 75000,
+      "managerName": "Бариста Лена",
+      "desc": "Киоск 2×3 м у метро: эспрессо-машина, кофемолка и стойка.",
+      "fact": "В жизни: 200–300 чашек в день по $3–4, вложения $3–15 тыс., окупаемость ~1 год."
+    },
+    {
+      "id": "shawarma",
+      "name": "Шаурмичная",
+      "emoji": "🌯",
+      "category": "food_takeaway",
+      "baseCost": 45000,
+      "costGrowth": 1.09,
+      "cycleSec": 2,
+      "revenue": 4200,
+      "expenses": {
+        "cogs": 0.35,
+        "rent": 0.1,
+        "salaries": 0.22
+      },
+      "managerCost": 675000,
+      "managerName": "Шеф Ашот",
+      "desc": "Точка у вокзала с вертелом, грилем и окном выдачи.",
+      "fact": "В жизни: ~$40–60 тыс. на запуск, фудкост 30–35%, высокая проходимость решает всё."
+    },
+    {
+      "id": "car_wash",
+      "name": "Автомойка",
+      "emoji": "🚿",
+      "category": "auto_service",
+      "baseCost": 300000,
+      "costGrowth": 1.1,
+      "cycleSec": 4,
+      "revenue": 25600,
+      "expenses": {
+        "cogs": 0.12,
+        "rent": 0.15,
+        "salaries": 0.28
+      },
+      "managerCost": 4500000,
+      "managerName": "Мастер Дмитрий",
+      "desc": "Мойка самообслуживания на 4 поста с химией и пылесосами.",
+      "fact": "В жизни: $250–500 тыс. за пост-самообслуживание, маржа выше 40% — вода и химия дешёвые."
+    },
+    {
+      "id": "coffee_shop",
+      "name": "Кофейня",
+      "emoji": "🥐",
+      "category": "food_dinein",
+      "baseCost": 1500000,
+      "costGrowth": 1.11,
+      "cycleSec": 6,
+      "revenue": 240000,
+      "expenses": {
+        "cogs": 0.3,
+        "rent": 0.16,
+        "salaries": 0.3
+      },
+      "managerCost": 22500000,
+      "managerName": "Управляющая Марина",
+      "desc": "Специализированная кофейня с обжаркой, выпечкой и залом на 60 мест.",
+      "fact": "В жизни: аренда и зарплаты съедают ~45% выручки, чистая маржа 10–15%."
+    },
+    {
+      "id": "franchise",
+      "name": "Франшиза фастфуда",
+      "emoji": "🍔",
+      "category": "food_fast",
+      "baseCost": 7000000,
+      "costGrowth": 1.11,
+      "cycleSec": 10,
+      "revenue": 1360000,
+      "expenses": {
+        "cogs": 0.32,
+        "rent": 0.14,
+        "salaries": 0.3
+      },
+      "managerCost": 105000000,
+      "managerName": "Франчайзи Игорь",
+      "desc": "Ресторан известной бургерной сети с драйв-тру.",
+      "fact": "В жизни: франшиза McDonald’s обходится в $1,5–2,5 млн, роялти ~4% + аренда ~10% выручки."
+    },
+    {
+      "id": "gas_station",
+      "name": "АЗС",
+      "emoji": "⛽",
+      "category": "fuel",
+      "baseCost": 30000000,
+      "costGrowth": 1.12,
+      "cycleSec": 15,
+      "revenue": 22000000,
+      "expenses": {
+        "cogs": 0.82,
+        "rent": 0.04,
+        "salaries": 0.07
+      },
+      "managerCost": 450000000,
+      "managerName": "Оператор Сергей",
+      "desc": "Заправка у трассы с магазином, кафе и мойкой.",
+      "fact": "В жизни: на топливе АЗС зарабатывает всего 3–7%, основная маржа — в магазине."
+    },
+    {
+      "id": "supermarket",
+      "name": "Сеть супермаркетов",
+      "emoji": "🛒",
+      "category": "retail_grocery",
+      "baseCost": 120000000,
+      "costGrowth": 1.12,
+      "cycleSec": 25,
+      "revenue": 96200000,
+      "expenses": {
+        "cogs": 0.7,
+        "rent": 0.07,
+        "salaries": 0.15
+      },
+      "managerCost": 1800000000,
+      "managerName": "Директор сети Ольга",
+      "desc": "Сеть из 10 магазинов у дома с собственным складом.",
+      "fact": "В жизни: чистая маржа продуктового ретейла — 1–4%, выигрывает тот, кто лучше закупает."
+    },
+    {
+      "id": "it_studio",
+      "name": "IT-студия",
+      "emoji": "💻",
+      "category": "tech",
+      "baseCost": 500000000,
+      "costGrowth": 1.13,
+      "cycleSec": 40,
+      "revenue": 120000000,
+      "expenses": {
+        "cogs": 0.06,
+        "rent": 0.06,
+        "salaries": 0.55
+      },
+      "managerCost": 7500000000,
+      "managerName": "CTO Алексей",
+      "desc": "Студия разработки на 300 инженеров: мобильные приложения, SaaS и ИИ.",
+      "fact": "В жизни: главная статья расходов — зарплаты (50–60%), зато почти нет себестоимости."
+    },
+    {
+      "id": "logistics",
+      "name": "Логистическая компания",
+      "emoji": "🚚",
+      "category": "logistics",
+      "baseCost": 2000000000,
+      "costGrowth": 1.13,
+      "cycleSec": 60,
+      "revenue": 1230000000,
+      "expenses": {
+        "cogs": 0.45,
+        "rent": 0.12,
+        "salaries": 0.28
+      },
+      "managerCost": 30000000000,
+      "managerName": "COO Тимур",
+      "desc": "Флот из 2 000 фур, сортировочные хабы и последняя миля.",
+      "fact": "В жизни: топливо и лизинг — до половины затрат, маржа 5–10%."
+    },
+    {
+      "id": "factory",
+      "name": "Завод",
+      "emoji": "🏭",
+      "category": "manufacturing",
+      "baseCost": 8000000000,
+      "costGrowth": 1.13,
+      "cycleSec": 90,
+      "revenue": 5910000000,
+      "expenses": {
+        "cogs": 0.55,
+        "rent": 0.1,
+        "salaries": 0.2
+      },
+      "managerCost": 120000000000,
+      "managerName": "Главный инженер Пётр",
+      "desc": "Высокотехнологичное производство электроники и батарей.",
+      "fact": "В жизни: материалы и энергия — 55–65% себестоимости, капиталоёмкий бизнес."
+    },
+    {
+      "id": "bank",
+      "name": "Банк",
+      "emoji": "🏦",
+      "category": "finance",
+      "baseCost": 30000000000,
+      "costGrowth": 1.14,
+      "cycleSec": 120,
+      "revenue": 12300000000,
+      "expenses": {
+        "cogs": 0.3,
+        "rent": 0.08,
+        "salaries": 0.32
+      },
+      "managerCost": 450000000000,
+      "managerName": "Председатель правления Виктор",
+      "desc": "Розничный и инвестиционный банк с лицензией и сетью отделений.",
+      "fact": "В жизни: прибыль = процентная маржа + комиссии; регуляторы требуют капитал 10%+ от активов."
+    },
+    {
+      "id": "airline",
+      "name": "Авиакомпания",
+      "emoji": "✈️",
+      "category": "airline",
+      "baseCost": 120000000000,
+      "costGrowth": 1.14,
+      "cycleSec": 180,
+      "revenue": 185000000000,
+      "expenses": {
+        "cogs": 0.45,
+        "rent": 0.18,
+        "salaries": 0.27
+      },
+      "managerCost": 1800000000000,
+      "managerName": "CEO Анна",
+      "desc": "Флот из 150 узкофюзеляжных лайнеров и хаб в крупном аэропорту.",
+      "fact": "В жизни: топливо — 25–35% расходов, чистая маржа отрасли редко выше 5%."
+    },
+    {
+      "id": "oil_gas",
+      "name": "Нефтегазовая корпорация",
+      "emoji": "🛢️",
+      "category": "energy",
+      "baseCost": 500000000000,
+      "costGrowth": 1.15,
+      "cycleSec": 240,
+      "revenue": 240000000000,
+      "expenses": {
+        "cogs": 0.45,
+        "rent": 0.1,
+        "salaries": 0.1
+      },
+      "managerCost": 7500000000000,
+      "managerName": "Вице-президент по добыче Рустам",
+      "desc": "Добыча, НПЗ и танкерный флот на трёх континентах.",
+      "fact": "В жизни: маржа зависит от цены нефти: при $100 за баррель — сверхприбыль, при $30 — убытки."
+    },
+    {
+      "id": "space",
+      "name": "Частная космическая компания",
+      "emoji": "🚀",
+      "category": "space",
+      "baseCost": 2000000000000,
+      "costGrowth": 1.15,
+      "cycleSec": 360,
+      "revenue": 2130000000000,
+      "expenses": {
+        "cogs": 0.4,
+        "rent": 0.08,
+        "salaries": 0.32
+      },
+      "managerCost": 30000000000000,
+      "managerName": "Главный конструктор Ева",
+      "desc": "Многоразовые ракеты, спутниковый интернет и лунные миссии.",
+      "fact": "В жизни: запуск Falcon 9 стоит ~$70 млн, а спутниковый интернет приносит миллиарды в год."
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "coffee_cart_cogs",
+      "biz": "coffee_cart",
+      "type": "cogs",
+      "value": 0.15,
+      "costMult": 100,
+      "name": "Прямые поставки",
+      "desc": "Закупка у производителя без посредников: −15% себестоимости"
+    },
+    {
+      "id": "coffee_cart_rent",
+      "biz": "coffee_cart",
+      "type": "rent",
+      "value": 0.25,
+      "costMult": 300,
+      "name": "Выкуп помещений",
+      "desc": "Долгосрочная аренда/выкуп и энергосбережение: −25% аренды и коммуналки"
+    },
+    {
+      "id": "coffee_cart_sal",
+      "biz": "coffee_cart",
+      "type": "salaries",
+      "value": 0.2,
+      "costMult": 800,
+      "name": "Автоматизация",
+      "desc": "Кассы самообслуживания, CRM и роботизация: −20% фонда оплаты труда"
+    },
+    {
+      "id": "coffee_cart_mkt1",
+      "biz": "coffee_cart",
+      "type": "revenue",
+      "value": 2,
+      "costMult": 10000,
+      "name": "Маркетинг",
+      "desc": "Таргет, программа лояльности и коллаборации: выручка ×2"
+    },
+    {
+      "id": "coffee_cart_mkt2",
+      "biz": "coffee_cart",
+      "type": "revenue",
+      "value": 3,
+      "costMult": 1000000,
+      "name": "Сильный бренд",
+      "desc": "Узнаваемый бренд позволяет поднять цены: выручка ×3"
+    },
+    {
+      "id": "coffee_cart_mkt3",
+      "biz": "coffee_cart",
+      "type": "revenue",
+      "value": 5,
+      "costMult": 1000000000,
+      "name": "Монополия на рынке",
+      "desc": "Вы — лидер рынка и диктуете условия: выручка ×5"
+    },
+    {
+      "id": "shawarma_cogs",
+      "biz": "shawarma",
+      "type": "cogs",
+      "value": 0.15,
+      "costMult": 100,
+      "name": "Прямые поставки",
+      "desc": "Закупка у производителя без посредников: −15% себестоимости"
+    },
+    {
+      "id": "shawarma_rent",
+      "biz": "shawarma",
+      "type": "rent",
+      "value": 0.25,
+      "costMult": 300,
+      "name": "Выкуп помещений",
+      "desc": "Долгосрочная аренда/выкуп и энергосбережение: −25% аренды и коммуналки"
+    },
+    {
+      "id": "shawarma_sal",
+      "biz": "shawarma",
+      "type": "salaries",
+      "value": 0.2,
+      "costMult": 800,
+      "name": "Автоматизация",
+      "desc": "Кассы самообслуживания, CRM и роботизация: −20% фонда оплаты труда"
+    },
+    {
+      "id": "shawarma_mkt1",
+      "biz": "shawarma",
+      "type": "revenue",
+      "value": 2,
+      "costMult": 10000,
+      "name": "Маркетинг",
+      "desc": "Таргет, программа лояльности и коллаборации: выручка ×2"
+    },
+    {
+      "id": "shawarma_mkt2",
+      "biz": "shawarma",
+      "type": "revenue",
+      "value": 3,
+      "costMult": 1000000,
+      "name": "Сильный бренд",
+      "desc": "Узнаваемый бренд позволяет поднять цены: выручка ×3"
+    },
+    {
+      "id": "shawarma_mkt3",
+      "biz": "shawarma",
+      "type": "revenue",
+      "value": 5,
+      "costMult": 1000000000,
+      "name": "Монополия на рынке",
+      "desc": "Вы — лидер рынка и диктуете условия: выручка ×5"
+    },
+    {
+      "id": "car_wash_cogs",
+      "biz": "car_wash",
+      "type": "cogs",
+      "value": 0.15,
+      "costMult": 100,
+      "name": "Прямые поставки",
+      "desc": "Закупка у производителя без посредников: −15% себестоимости"
+    },
+    {
+      "id": "car_wash_rent",
+      "biz": "car_wash",
+      "type": "rent",
+      "value": 0.25,
+      "costMult": 300,
+      "name": "Выкуп помещений",
+      "desc": "Долгосрочная аренда/выкуп и энергосбережение: −25% аренды и коммуналки"
+    },
+    {
+      "id": "car_wash_sal",
+      "biz": "car_wash",
+      "type": "salaries",
+      "value": 0.2,
+      "costMult": 800,
+      "name": "Автоматизация",
+      "desc": "Кассы самообслуживания, CRM и роботизация: −20% фонда оплаты труда"
+    },
+    {
+      "id": "car_wash_mkt1",
+      "biz": "car_wash",
+      "type": "revenue",
+      "value": 2,
+      "costMult": 10000,
+      "name": "Маркетинг",
+      "desc": "Таргет, программа лояльности и коллаборации: выручка ×2"
+    },
+    {
+      "id": "car_wash_mkt2",
+      "biz": "car_wash",
+      "type": "revenue",
+      "value": 3,
+      "costMult": 1000000,
+      "name": "Сильный бренд",
+      "desc": "Узнаваемый бренд позволяет поднять цены: выручка ×3"
+    },
+    {
+      "id": "car_wash_mkt3",
+      "biz": "car_wash",
+      "type": "revenue",
+      "value": 5,
+      "costMult": 1000000000,
+      "name": "Монополия на рынке",
+      "desc": "Вы — лидер рынка и диктуете условия: выручка ×5"
+    },
+    {
+      "id": "coffee_shop_cogs",
+      "biz": "coffee_shop",
+      "type": "cogs",
+      "value": 0.15,
+      "costMult": 100,
+      "name": "Прямые поставки",
+      "desc": "Закупка у производителя без посредников: −15% себестоимости"
+    },
+    {
+      "id": "coffee_shop_rent",
+      "biz": "coffee_shop",
+      "type": "rent",
+      "value": 0.25,
+      "costMult": 300,
+      "name": "Выкуп помещений",
+      "desc": "Долгосрочная аренда/выкуп и энергосбережение: −25% аренды и коммуналки"
+    },
+    {
+      "id": "coffee_shop_sal",
+      "biz": "coffee_shop",
+      "type": "salaries",
+      "value": 0.2,
+      "costMult": 800,
+      "name": "Автоматизация",
+      "desc": "Кассы самообслуживания, CRM и роботизация: −20% фонда оплаты труда"
+    },
+    {
+      "id": "coffee_shop_mkt1",
+      "biz": "coffee_shop",
+      "type": "revenue",
+      "value": 2,
+      "costMult": 10000,
+      "name": "Маркетинг",
+      "desc": "Таргет, программа лояльности и коллаборации: выручка ×2"
+    },
+    {
+      "id": "coffee_shop_mkt2",
+      "biz": "coffee_shop",
+      "type": "revenue",
+      "value": 3,
+      "costMult": 1000000,
+      "name": "Сильный бренд",
+      "desc": "Узнаваемый бренд позволяет поднять цены: выручка ×3"
+    },
+    {
+      "id": "coffee_shop_mkt3",
+      "biz": "coffee_shop",
+      "type": "revenue",
+      "value": 5,
+      "costMult": 1000000000,
+      "name": "Монополия на рынке",
+      "desc": "Вы — лидер рынка и диктуете условия: выручка ×5"
+    },
+    {
+      "id": "franchise_cogs",
+      "biz": "franchise",
+      "type": "cogs",
+      "value": 0.15,
+      "costMult": 100,
+      "name": "Прямые поставки",
+      "desc": "Закупка у производителя без посредников: −15% себестоимости"
+    },
+    {
+      "id": "franchise_rent",
+      "biz": "franchise",
+      "type": "rent",
+      "value": 0.25,
+      "costMult": 300,
+      "name": "Выкуп помещений",
+      "desc": "Долгосрочная аренда/выкуп и энергосбережение: −25% аренды и коммуналки"
+    },
+    {
+      "id": "franchise_sal",
+      "biz": "franchise",
+      "type": "salaries",
+      "value": 0.2,
+      "costMult": 800,
+      "name": "Автоматизация",
+      "desc": "Кассы самообслуживания, CRM и роботизация: −20% фонда оплаты труда"
+    },
+    {
+      "id": "franchise_mkt1",
+      "biz": "franchise",
+      "type": "revenue",
+      "value": 2,
+      "costMult": 10000,
+      "name": "Маркетинг",
+      "desc": "Таргет, программа лояльности и коллаборации: выручка ×2"
+    },
+    {
+      "id": "franchise_mkt2",
+      "biz": "franchise",
+      "type": "revenue",
+      "value": 3,
+      "costMult": 1000000,
+      "name": "Сильный бренд",
+      "desc": "Узнаваемый бренд позволяет поднять цены: выручка ×3"
+    },
+    {
+      "id": "franchise_mkt3",
+      "biz": "franchise",
+      "type": "revenue",
+      "value": 5,
+      "costMult": 1000000000,
+      "name": "Монополия на рынке",
+      "desc": "Вы — лидер рынка и диктуете условия: выручка ×5"
+    },
+    {
+      "id": "gas_station_cogs",
+      "biz": "gas_station",
+      "type": "cogs",
+      "value": 0.15,
+      "costMult": 100,
+      "name": "Прямые поставки",
+      "desc": "Закупка у производителя без посредников: −15% себестоимости"
+    },
+    {
+      "id": "gas_station_rent",
+      "biz": "gas_station",
+      "type": "rent",
+      "value": 0.25,
+      "costMult": 300,
+      "name": "Выкуп помещений",
+      "desc": "Долгосрочная аренда/выкуп и энергосбережение: −25% аренды и коммуналки"
+    },
+    {
+      "id": "gas_station_sal",
+      "biz": "gas_station",
+      "type": "salaries",
+      "value": 0.2,
+      "costMult": 800,
+      "name": "Автоматизация",
+      "desc": "Кассы самообслуживания, CRM и роботизация: −20% фонда оплаты труда"
+    },
+    {
+      "id": "gas_station_mkt1",
+      "biz": "gas_station",
+      "type": "revenue",
+      "value": 2,
+      "costMult": 10000,
+      "name": "Маркетинг",
+      "desc": "Таргет, программа лояльности и коллаборации: выручка ×2"
+    },
+    {
+      "id": "gas_station_mkt2",
+      "biz": "gas_station",
+      "type": "revenue",
+      "value": 3,
+      "costMult": 1000000,
+      "name": "Сильный бренд",
+      "desc": "Узнаваемый бренд позволяет поднять цены: выручка ×3"
+    },
+    {
+      "id": "gas_station_mkt3",
+      "biz": "gas_station",
+      "type": "revenue",
+      "value": 5,
+      "costMult": 1000000000,
+      "name": "Монополия на рынке",
+      "desc": "Вы — лидер рынка и диктуете условия: выручка ×5"
+    },
+    {
+      "id": "supermarket_cogs",
+      "biz": "supermarket",
+      "type": "cogs",
+      "value": 0.15,
+      "costMult": 100,
+      "name": "Прямые поставки",
+      "desc": "Закупка у производителя без посредников: −15% себестоимости"
+    },
+    {
+      "id": "supermarket_rent",
+      "biz": "supermarket",
+      "type": "rent",
+      "value": 0.25,
+      "costMult": 300,
+      "name": "Выкуп помещений",
+      "desc": "Долгосрочная аренда/выкуп и энергосбережение: −25% аренды и коммуналки"
+    },
+    {
+      "id": "supermarket_sal",
+      "biz": "supermarket",
+      "type": "salaries",
+      "value": 0.2,
+      "costMult": 800,
+      "name": "Автоматизация",
+      "desc": "Кассы самообслуживания, CRM и роботизация: −20% фонда оплаты труда"
+    },
+    {
+      "id": "supermarket_mkt1",
+      "biz": "supermarket",
+      "type": "revenue",
+      "value": 2,
+      "costMult": 10000,
+      "name": "Маркетинг",
+      "desc": "Таргет, программа лояльности и коллаборации: выручка ×2"
+    },
+    {
+      "id": "supermarket_mkt2",
+      "biz": "supermarket",
+      "type": "revenue",
+      "value": 3,
+      "costMult": 1000000,
+      "name": "Сильный бренд",
+      "desc": "Узнаваемый бренд позволяет поднять цены: выручка ×3"
+    },
+    {
+      "id": "supermarket_mkt3",
+      "biz": "supermarket",
+      "type": "revenue",
+      "value": 5,
+      "costMult": 1000000000,
+      "name": "Монополия на рынке",
+      "desc": "Вы — лидер рынка и диктуете условия: выручка ×5"
+    },
+    {
+      "id": "it_studio_cogs",
+      "biz": "it_studio",
+      "type": "cogs",
+      "value": 0.15,
+      "costMult": 100,
+      "name": "Прямые поставки",
+      "desc": "Закупка у производителя без посредников: −15% себестоимости"
+    },
+    {
+      "id": "it_studio_rent",
+      "biz": "it_studio",
+      "type": "rent",
+      "value": 0.25,
+      "costMult": 300,
+      "name": "Выкуп помещений",
+      "desc": "Долгосрочная аренда/выкуп и энергосбережение: −25% аренды и коммуналки"
+    },
+    {
+      "id": "it_studio_sal",
+      "biz": "it_studio",
+      "type": "salaries",
+      "value": 0.2,
+      "costMult": 800,
+      "name": "Автоматизация",
+      "desc": "Кассы самообслуживания, CRM и роботизация: −20% фонда оплаты труда"
+    },
+    {
+      "id": "it_studio_mkt1",
+      "biz": "it_studio",
+      "type": "revenue",
+      "value": 2,
+      "costMult": 10000,
+      "name": "Маркетинг",
+      "desc": "Таргет, программа лояльности и коллаборации: выручка ×2"
+    },
+    {
+      "id": "it_studio_mkt2",
+      "biz": "it_studio",
+      "type": "revenue",
+      "value": 3,
+      "costMult": 1000000,
+      "name": "Сильный бренд",
+      "desc": "Узнаваемый бренд позволяет поднять цены: выручка ×3"
+    },
+    {
+      "id": "it_studio_mkt3",
+      "biz": "it_studio",
+      "type": "revenue",
+      "value": 5,
+      "costMult": 1000000000,
+      "name": "Монополия на рынке",
+      "desc": "Вы — лидер рынка и диктуете условия: выручка ×5"
+    },
+    {
+      "id": "logistics_cogs",
+      "biz": "logistics",
+      "type": "cogs",
+      "value": 0.15,
+      "costMult": 100,
+      "name": "Прямые поставки",
+      "desc": "Закупка у производителя без посредников: −15% себестоимости"
+    },
+    {
+      "id": "logistics_rent",
+      "biz": "logistics",
+      "type": "rent",
+      "value": 0.25,
+      "costMult": 300,
+      "name": "Выкуп помещений",
+      "desc": "Долгосрочная аренда/выкуп и энергосбережение: −25% аренды и коммуналки"
+    },
+    {
+      "id": "logistics_sal",
+      "biz": "logistics",
+      "type": "salaries",
+      "value": 0.2,
+      "costMult": 800,
+      "name": "Автоматизация",
+      "desc": "Кассы самообслуживания, CRM и роботизация: −20% фонда оплаты труда"
+    },
+    {
+      "id": "logistics_mkt1",
+      "biz": "logistics",
+      "type": "revenue",
+      "value": 2,
+      "costMult": 10000,
+      "name": "Маркетинг",
+      "desc": "Таргет, программа лояльности и коллаборации: выручка ×2"
+    },
+    {
+      "id": "logistics_mkt2",
+      "biz": "logistics",
+      "type": "revenue",
+      "value": 3,
+      "costMult": 1000000,
+      "name": "Сильный бренд",
+      "desc": "Узнаваемый бренд позволяет поднять цены: выручка ×3"
+    },
+    {
+      "id": "logistics_mkt3",
+      "biz": "logistics",
+      "type": "revenue",
+      "value": 5,
+      "costMult": 1000000000,
+      "name": "Монополия на рынке",
+      "desc": "Вы — лидер рынка и диктуете условия: выручка ×5"
+    },
+    {
+      "id": "factory_cogs",
+      "biz": "factory",
+      "type": "cogs",
+      "value": 0.15,
+      "costMult": 100,
+      "name": "Прямые поставки",
+      "desc": "Закупка у производителя без посредников: −15% себестоимости"
+    },
+    {
+      "id": "factory_rent",
+      "biz": "factory",
+      "type": "rent",
+      "value": 0.25,
+      "costMult": 300,
+      "name": "Выкуп помещений",
+      "desc": "Долгосрочная аренда/выкуп и энергосбережение: −25% аренды и коммуналки"
+    },
+    {
+      "id": "factory_sal",
+      "biz": "factory",
+      "type": "salaries",
+      "value": 0.2,
+      "costMult": 800,
+      "name": "Автоматизация",
+      "desc": "Кассы самообслуживания, CRM и роботизация: −20% фонда оплаты труда"
+    },
+    {
+      "id": "factory_mkt1",
+      "biz": "factory",
+      "type": "revenue",
+      "value": 2,
+      "costMult": 10000,
+      "name": "Маркетинг",
+      "desc": "Таргет, программа лояльности и коллаборации: выручка ×2"
+    },
+    {
+      "id": "factory_mkt2",
+      "biz": "factory",
+      "type": "revenue",
+      "value": 3,
+      "costMult": 1000000,
+      "name": "Сильный бренд",
+      "desc": "Узнаваемый бренд позволяет поднять цены: выручка ×3"
+    },
+    {
+      "id": "factory_mkt3",
+      "biz": "factory",
+      "type": "revenue",
+      "value": 5,
+      "costMult": 1000000000,
+      "name": "Монополия на рынке",
+      "desc": "Вы — лидер рынка и диктуете условия: выручка ×5"
+    },
+    {
+      "id": "bank_cogs",
+      "biz": "bank",
+      "type": "cogs",
+      "value": 0.15,
+      "costMult": 100,
+      "name": "Прямые поставки",
+      "desc": "Закупка у производителя без посредников: −15% себестоимости"
+    },
+    {
+      "id": "bank_rent",
+      "biz": "bank",
+      "type": "rent",
+      "value": 0.25,
+      "costMult": 300,
+      "name": "Выкуп помещений",
+      "desc": "Долгосрочная аренда/выкуп и энергосбережение: −25% аренды и коммуналки"
+    },
+    {
+      "id": "bank_sal",
+      "biz": "bank",
+      "type": "salaries",
+      "value": 0.2,
+      "costMult": 800,
+      "name": "Автоматизация",
+      "desc": "Кассы самообслуживания, CRM и роботизация: −20% фонда оплаты труда"
+    },
+    {
+      "id": "bank_mkt1",
+      "biz": "bank",
+      "type": "revenue",
+      "value": 2,
+      "costMult": 10000,
+      "name": "Маркетинг",
+      "desc": "Таргет, программа лояльности и коллаборации: выручка ×2"
+    },
+    {
+      "id": "bank_mkt2",
+      "biz": "bank",
+      "type": "revenue",
+      "value": 3,
+      "costMult": 1000000,
+      "name": "Сильный бренд",
+      "desc": "Узнаваемый бренд позволяет поднять цены: выручка ×3"
+    },
+    {
+      "id": "bank_mkt3",
+      "biz": "bank",
+      "type": "revenue",
+      "value": 5,
+      "costMult": 1000000000,
+      "name": "Монополия на рынке",
+      "desc": "Вы — лидер рынка и диктуете условия: выручка ×5"
+    },
+    {
+      "id": "airline_cogs",
+      "biz": "airline",
+      "type": "cogs",
+      "value": 0.15,
+      "costMult": 100,
+      "name": "Прямые поставки",
+      "desc": "Закупка у производителя без посредников: −15% себестоимости"
+    },
+    {
+      "id": "airline_rent",
+      "biz": "airline",
+      "type": "rent",
+      "value": 0.25,
+      "costMult": 300,
+      "name": "Выкуп помещений",
+      "desc": "Долгосрочная аренда/выкуп и энергосбережение: −25% аренды и коммуналки"
+    },
+    {
+      "id": "airline_sal",
+      "biz": "airline",
+      "type": "salaries",
+      "value": 0.2,
+      "costMult": 800,
+      "name": "Автоматизация",
+      "desc": "Кассы самообслуживания, CRM и роботизация: −20% фонда оплаты труда"
+    },
+    {
+      "id": "airline_mkt1",
+      "biz": "airline",
+      "type": "revenue",
+      "value": 2,
+      "costMult": 10000,
+      "name": "Маркетинг",
+      "desc": "Таргет, программа лояльности и коллаборации: выручка ×2"
+    },
+    {
+      "id": "airline_mkt2",
+      "biz": "airline",
+      "type": "revenue",
+      "value": 3,
+      "costMult": 1000000,
+      "name": "Сильный бренд",
+      "desc": "Узнаваемый бренд позволяет поднять цены: выручка ×3"
+    },
+    {
+      "id": "airline_mkt3",
+      "biz": "airline",
+      "type": "revenue",
+      "value": 5,
+      "costMult": 1000000000,
+      "name": "Монополия на рынке",
+      "desc": "Вы — лидер рынка и диктуете условия: выручка ×5"
+    },
+    {
+      "id": "oil_gas_cogs",
+      "biz": "oil_gas",
+      "type": "cogs",
+      "value": 0.15,
+      "costMult": 100,
+      "name": "Прямые поставки",
+      "desc": "Закупка у производителя без посредников: −15% себестоимости"
+    },
+    {
+      "id": "oil_gas_rent",
+      "biz": "oil_gas",
+      "type": "rent",
+      "value": 0.25,
+      "costMult": 300,
+      "name": "Выкуп помещений",
+      "desc": "Долгосрочная аренда/выкуп и энергосбережение: −25% аренды и коммуналки"
+    },
+    {
+      "id": "oil_gas_sal",
+      "biz": "oil_gas",
+      "type": "salaries",
+      "value": 0.2,
+      "costMult": 800,
+      "name": "Автоматизация",
+      "desc": "Кассы самообслуживания, CRM и роботизация: −20% фонда оплаты труда"
+    },
+    {
+      "id": "oil_gas_mkt1",
+      "biz": "oil_gas",
+      "type": "revenue",
+      "value": 2,
+      "costMult": 10000,
+      "name": "Маркетинг",
+      "desc": "Таргет, программа лояльности и коллаборации: выручка ×2"
+    },
+    {
+      "id": "oil_gas_mkt2",
+      "biz": "oil_gas",
+      "type": "revenue",
+      "value": 3,
+      "costMult": 1000000,
+      "name": "Сильный бренд",
+      "desc": "Узнаваемый бренд позволяет поднять цены: выручка ×3"
+    },
+    {
+      "id": "oil_gas_mkt3",
+      "biz": "oil_gas",
+      "type": "revenue",
+      "value": 5,
+      "costMult": 1000000000,
+      "name": "Монополия на рынке",
+      "desc": "Вы — лидер рынка и диктуете условия: выручка ×5"
+    },
+    {
+      "id": "space_cogs",
+      "biz": "space",
+      "type": "cogs",
+      "value": 0.15,
+      "costMult": 100,
+      "name": "Прямые поставки",
+      "desc": "Закупка у производителя без посредников: −15% себестоимости"
+    },
+    {
+      "id": "space_rent",
+      "biz": "space",
+      "type": "rent",
+      "value": 0.25,
+      "costMult": 300,
+      "name": "Выкуп помещений",
+      "desc": "Долгосрочная аренда/выкуп и энергосбережение: −25% аренды и коммуналки"
+    },
+    {
+      "id": "space_sal",
+      "biz": "space",
+      "type": "salaries",
+      "value": 0.2,
+      "costMult": 800,
+      "name": "Автоматизация",
+      "desc": "Кассы самообслуживания, CRM и роботизация: −20% фонда оплаты труда"
+    },
+    {
+      "id": "space_mkt1",
+      "biz": "space",
+      "type": "revenue",
+      "value": 2,
+      "costMult": 10000,
+      "name": "Маркетинг",
+      "desc": "Таргет, программа лояльности и коллаборации: выручка ×2"
+    },
+    {
+      "id": "space_mkt2",
+      "biz": "space",
+      "type": "revenue",
+      "value": 3,
+      "costMult": 1000000,
+      "name": "Сильный бренд",
+      "desc": "Узнаваемый бренд позволяет поднять цены: выручка ×3"
+    },
+    {
+      "id": "space_mkt3",
+      "biz": "space",
+      "type": "revenue",
+      "value": 5,
+      "costMult": 1000000000,
+      "name": "Монополия на рынке",
+      "desc": "Вы — лидер рынка и диктуете условия: выручка ×5"
+    }
+  ]
+}

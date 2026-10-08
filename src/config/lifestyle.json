@@ -1,0 +1,34 @@
+{
+  "_comment": "Лайфстайл: примерные реальные цены (USD, новые/рыночные). bonus: income — +доля к прибыли бизнесов, click — +доля к клику, crit — +шанс крита, discount — скидка на точки («удача на переговорах»), offline — +часы офлайна, rent — +доля аренды.",
+  "categories": [
+    { "id": "cars", "name": "Авто", "emoji": "🚗" },
+    { "id": "watches", "name": "Часы", "emoji": "⌚" },
+    { "id": "housing", "name": "Жильё", "emoji": "🏠" },
+    { "id": "transport", "name": "Транспорт", "emoji": "🛥️" },
+    { "id": "collect", "name": "Коллекции", "emoji": "🖼️" }
+  ],
+  "items": [
+    { "id": "corolla", "cat": "cars", "name": "Toyota Corolla", "emoji": "🚗", "price": 20000, "bonus": { "click": 0.1 }, "desc": "Самый продаваемый автомобиль в истории. Надёжно и без понтов." },
+    { "id": "bmw_m5", "cat": "cars", "name": "BMW M5", "emoji": "🏎️", "price": 105000, "bonus": { "click": 0.15 }, "desc": "Бизнес-седан с V8 — на встречу инвесторов за 3,3 секунды до сотни." },
+    { "id": "g_class", "cat": "cars", "name": "Mercedes-AMG G 63", "emoji": "🚙", "price": 180000, "bonus": { "discount": 0.01 }, "desc": "Кубик, который узнают все партнёры по переговорам." },
+    { "id": "porsche911", "cat": "cars", "name": "Porsche 911 Turbo S", "emoji": "🏁", "price": 230000, "bonus": { "click": 0.25 }, "desc": "Легенда автоспорта с 1963 года." },
+    { "id": "aventador", "cat": "cars", "name": "Lamborghini Aventador", "emoji": "🐂", "price": 420000, "bonus": { "income": 0.02 }, "desc": "V12 и двери-ножницы. Внимание гарантировано." },
+    { "id": "chiron", "cat": "cars", "name": "Bugatti Chiron", "emoji": "💎", "price": 3000000, "bonus": { "income": 0.05 }, "desc": "1 500 л.с., всего 500 экземпляров." },
+    { "id": "casio", "cat": "watches", "name": "Casio G-Shock", "emoji": "⌚", "price": 100, "bonus": { "crit": 0.002 }, "desc": "Неубиваемые часы для смен курьером." },
+    { "id": "seiko", "cat": "watches", "name": "Seiko Presage", "emoji": "🕰️", "price": 450, "bonus": { "crit": 0.003 }, "desc": "Японская механика по честной цене." },
+    { "id": "speedmaster", "cat": "watches", "name": "Omega Speedmaster", "emoji": "🌙", "price": 7000, "bonus": { "crit": 0.005 }, "desc": "Часы, которые побывали на Луне в 1969-м." },
+    { "id": "submariner", "cat": "watches", "name": "Rolex Submariner", "emoji": "🌊", "price": 10500, "bonus": { "discount": 0.01 }, "desc": "Стандарт делового мира. Очередь у дилеров — годами." },
+    { "id": "nautilus", "cat": "watches", "name": "Patek Philippe Nautilus", "emoji": "👑", "price": 150000, "bonus": { "crit": 0.01, "discount": 0.01 }, "desc": "5711/1A сняли с производства в 2021 — на вторичке в разы дороже прайса." },
+    { "id": "room", "cat": "housing", "name": "Съёмная комната", "emoji": "🛏️", "price": 900, "bonus": { "offline": 0.5 }, "desc": "Первый депозит и аренда за месяц. Свой угол!" },
+    { "id": "apartment", "cat": "housing", "name": "Своя квартира", "emoji": "🏢", "price": 350000, "bonus": { "offline": 1 }, "desc": "Двушка в хорошем районе без ипотеки." },
+    { "id": "penthouse", "cat": "housing", "name": "Пентхаус на Манхэттене", "emoji": "🌆", "price": 15000000, "bonus": { "income": 0.03 }, "desc": "Вид на Центральный парк с 80-го этажа." },
+    { "id": "villa", "cat": "housing", "name": "Вилла на Лазурном берегу", "emoji": "🏖️", "price": 40000000, "bonus": { "offline": 2, "income": 0.03 }, "desc": "Кап-Ферра: соседи — миллиардеры и звёзды кино." },
+    { "id": "boat", "cat": "transport", "name": "Моторная лодка", "emoji": "🚤", "price": 80000, "bonus": { "click": 0.1 }, "desc": "Выходные на озере — лучший отдых." },
+    { "id": "superyacht", "cat": "transport", "name": "Суперъяхта 70 м", "emoji": "🛥️", "price": 150000000, "bonus": { "income": 0.05 }, "desc": "Вертолётная площадка, бассейн и 20 человек экипажа." },
+    { "id": "gulfstream", "cat": "transport", "name": "Gulfstream G650ER", "emoji": "🛩️", "price": 70000000, "bonus": { "income": 0.04, "offline": 1 }, "desc": "13 900 км без посадки — Нью-Йорк — Токио за один перелёт." },
+    { "id": "banksy", "cat": "collect", "name": "Картина Бэнкси", "emoji": "🎈", "price": 1500000, "bonus": { "discount": 0.01 }, "desc": "«Девочка с шаром» в 2018 году самоуничтожилась прямо на аукционе." },
+    { "id": "basquiat", "cat": "collect", "name": "Баския, «Без названия»", "emoji": "🖼️", "price": 110000000, "bonus": { "income": 0.04 }, "desc": "В 2017 году ушла с аукциона Sotheby's за $110,5 млн." },
+    { "id": "nba_team", "cat": "collect", "name": "Команда НБА", "emoji": "🏀", "price": 4000000000, "bonus": { "income": 0.08 }, "desc": "Средняя стоимость франшизы НБА — около $4 млрд." },
+    { "id": "island", "cat": "collect", "name": "Частный остров", "emoji": "🏝️", "price": 120000000, "bonus": { "offline": 2 }, "desc": "Остров на Багамах с виллой и взлётной полосой." }
+  ]
+}

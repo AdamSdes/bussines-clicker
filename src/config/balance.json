@@ -1,0 +1,41 @@
+{
+  "_comment": "Глобальные константы баланса. Все формулы — в src/engine/*.ts с комментариями.",
+  "tickMs": 100,
+  "autosaveSec": 10,
+  "storyStart": "2009-01-01",
+  "sandboxYears": [2000, 2003, 2008, 2010, 2013, 2016, 2020, 2022],
+  "speeds": [
+    { "id": "pause", "label": "Пауза", "secPerDay": 0 },
+    { "id": "x1", "label": "1 день = 1 мин", "secPerDay": 60 },
+    { "id": "x2", "label": "1 день = 30 с", "secPerDay": 30 },
+    { "id": "x6", "label": "1 день = 10 с", "secPerDay": 10 },
+    { "id": "x12", "label": "1 день = 5 с", "secPerDay": 5 },
+    { "id": "x30", "label": "1 день = 2 с", "secPerDay": 2 },
+    { "id": "x60", "label": "1 день = 1 с", "secPerDay": 1 }
+  ],
+  "offline": { "baseHours": 3, "efficiency": 0.6, "minSeconds": 30 },
+  "combo": { "windowMs": 900, "perClick": 0.04, "max": 5 },
+  "crit": { "chance": 0.05, "mult": 10 },
+  "tax": {
+    "_comment": "Историческая ставка налога на прибыль корпораций США: 35% до 2018, 21% после реформы TCJA",
+    "historical": [["2000-01-01", 0.35], ["2018-01-01", 0.21]],
+    "customDefault": 0.21
+  },
+  "prestige": {
+    "_comment": "IPO доступно, когда заработано за жизнь ≥ minEarnings. Репутация всего = floor(coef·sqrt(заработано за все жизни / base)). Каждое очко репутации даёт +bonusPerRep к прибыли навсегда.",
+    "minEarnings": 1e9,
+    "coef": 15,
+    "base": 1e9,
+    "bonusPerRep": 0.02
+  },
+  "trading": {
+    "_comment": "Комиссии брокера/биржи (доля от суммы сделки), минимальная комиссия $",
+    "stockFee": 0.001,
+    "cryptoFee": 0.005,
+    "minFee": 1
+  },
+  "randomEvents": { "minSec": 75, "maxSec": 180 },
+  "dailyRewards": [1, 2, 3, 5, 8, 12, 20],
+  "electricityPerKwh": 0.08,
+  "netWorthSampleDays": 7
+}

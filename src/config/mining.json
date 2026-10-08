@@ -1,0 +1,37 @@
+{
+  "_comment": "Майнинг BTC. Доход фермы в день = твой хешрейт / (хешрейт сети + твой) × реальная дневная эмиссия BTC (данные CoinMetrics, включают все халвинги). hashrate — TH/s, power — Вт, price — $ на старте продаж. Оборудование дешевеет со временем: depreciation — годовая потеря стоимости.",
+  "halvings": [
+    ["2012-11-28", 25], ["2016-07-09", 12.5], ["2020-05-11", 6.25], ["2024-04-20", 3.125], ["2028-04-15", 1.5625]
+  ],
+  "genesis": "2009-01-03",
+  "initialReward": 50,
+  "depreciation": 0.5,
+  "rigs": [
+    { "id": "cpu", "name": "ПК на Core 2 Quad", "emoji": "🖥️", "from": "2009-01-03", "hashrate": 0.0000045, "power": 150, "price": 900,
+      "desc": "Майнинг на процессоре — так начинал Сатоши. 4–5 MH/s." },
+    { "id": "gpu", "name": "Radeon HD 5870", "emoji": "🎮", "from": "2010-07-01", "hashrate": 0.0004, "power": 200, "price": 400,
+      "desc": "Видеокарты ATI оказались в 80 раз быстрее CPU. ~400 MH/s." },
+    { "id": "gpu_rig", "name": "GPU-ферма 6×HD 7970", "emoji": "🧱", "from": "2012-01-09", "hashrate": 0.0042, "power": 1500, "price": 3600,
+      "desc": "Шесть видеокарт на открытом стенде. ~4,2 GH/s." },
+    { "id": "avalon", "name": "Avalon ASIC (Batch 1)", "emoji": "🔲", "from": "2013-01-30", "hashrate": 0.066, "power": 620, "price": 1300,
+      "desc": "Первый серийный ASIC-майнер. 66 GH/s." },
+    { "id": "s1", "name": "Antminer S1", "emoji": "📦", "from": "2013-11-28", "hashrate": 0.18, "power": 360, "price": 1000,
+      "desc": "Первый майнер Bitmain. 180 GH/s." },
+    { "id": "s5", "name": "Antminer S5", "emoji": "📦", "from": "2014-12-27", "hashrate": 1.155, "power": 590, "price": 370,
+      "desc": "Первый массовый терахешный майнер. 1,15 TH/s." },
+    { "id": "s7", "name": "Antminer S7", "emoji": "📦", "from": "2015-09-01", "hashrate": 4.73, "power": 1293, "price": 1830,
+      "desc": "4,73 TH/s." },
+    { "id": "s9", "name": "Antminer S9", "emoji": "🏆", "from": "2016-06-01", "hashrate": 13.5, "power": 1323, "price": 2100,
+      "desc": "Легенда: самый популярный майнер в истории. 13,5 TH/s." },
+    { "id": "s17", "name": "Antminer S17 Pro", "emoji": "📦", "from": "2019-04-09", "hashrate": 53, "power": 2094, "price": 2400,
+      "desc": "53 TH/s на 7-нм чипах." },
+    { "id": "s19", "name": "Antminer S19 Pro", "emoji": "📦", "from": "2020-05-01", "hashrate": 110, "power": 3250, "price": 2900,
+      "desc": "110 TH/s — рабочая лошадка после халвинга 2020." },
+    { "id": "s19xp", "name": "Antminer S19 XP", "emoji": "📦", "from": "2022-07-15", "hashrate": 140, "power": 3010, "price": 5000,
+      "desc": "140 TH/s, 21,5 Дж/TH." },
+    { "id": "s21", "name": "Antminer S21", "emoji": "🚀", "from": "2023-12-15", "hashrate": 200, "power": 3500, "price": 4000,
+      "desc": "200 TH/s, 17,5 Дж/TH." },
+    { "id": "s21xp", "name": "Antminer S21 XP", "emoji": "🚀", "from": "2024-10-01", "hashrate": 270, "power": 3645, "price": 6500,
+      "desc": "270 TH/s, 13,5 Дж/TH." }
+  ]
+}
